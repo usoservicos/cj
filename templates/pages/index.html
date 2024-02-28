@@ -1,6 +1,7 @@
 {% extends 'base.html' %} 
 
 {% load humanize %}
+{% load static %}
 
 {% block title %} | Bem vindo(a)! {% endblock %}
 
@@ -9,14 +10,12 @@
 <section id="showcase">
     <div class="container text-center vh-grande">
       <div class="home-search p-5">
-        <div class="overlay p-5 rounded-1">
-          <h1 class="display-4 mb-4" style="letter-spacing: 0.34rem !important;">
-            <img src="{% static 'img/removebg01.png' %}" style="width: 100px !important; height:70px !important;" />
+        <div class="overlay p-5 rounded-1" style="box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px !important;">
+          <h1 class="display-4 mb-3" style="letter-spacing: 0.34rem !important;">
             <b>CJ Imoveis Brasília</b>
           </h1>
-          <p class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Recusandae quas, asperiores eveniet vel nostrum magnam
-            voluptatum tempore! Consectetur, id commodi!</p>
-            <p>Pesquise pelo seu próximo imóvel!</p>
+          <h4 class="lead mb-3">Seu Imóvel dos sonhos em Brasília</h4>
+          <p class="mb-5">Somos especializados em imóveis com mais de 15 anos trabalhando no mercado de propriedades no DF e região, basta escolher seu próximo imóvel que a nossa equipe de consultores vai entrar em contato para fazer acontecer!</p>
           <div class="search">
             <form action="{% url 'search' %}">
               <!-- Form Row 1 -->
@@ -75,13 +74,13 @@
   <!-- Listings -->
   <section id="listings" class="py-5">
     <div class="container">
-      <h2 class="text-center mb-3">Imóveis recentes</h2>
+      <h2 class="text-center mb-3">Imóveis em destaque</h2>
       <div class="row">
         {% if listings %}
           {% for listing in listings %}
             <!-- Listing 1 -->
             <div class="col-md-6 col-lg-4 mb-4">
-              <div class="card listing-preview">
+              <div class="card listing-preview" style="box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px !important;">
                 <img class="card-img-top" src="{{ listing.photo_main.url }}" alt="">
                 <div class="card-img-overlay">
                   <h2>
@@ -92,29 +91,29 @@
                   <div class="listing-heading text-center">
                     <h4 class="text-primary">{{ listing.title }}</h4>
                     <p>
-                      <i class="fas fa-map-marker text-secondary"></i> {{ listing.city }} {{ listing.state }}, {{ listing.zipcode }}</p>
+                      <i class="bi bi-bookmark-heart"></i> {{ listing.city }} {{ listing.state }}, {{ listing.zipcode }}</p>
                   </div>
                   <hr>
                   <div class="row py-2 text-secondary">
                     <div class="col-6">
-                      <i class="fas fa-th-large"></i> Área: {{ listing.sqft }}m²</div>
+                      <i class="bi bi-arrows-fullscreen"></i> Área: {{ listing.sqft }}m²</div>
                     <div class="col-6">
-                      <i class="fas fa-car"></i> Garagem: {{ listing.garage }}</div>
+                      <i class="bi bi-car-front-fill"></i> Garagem: {{ listing.garage }}</div>
                   </div>
                   <div class="row py-2 text-secondary">
                     <div class="col-6">
-                      <i class="fas fa-bed"></i> Quartos: {{ listing.bedrooms }}</div>
+                      <i class="bi bi-person-square"></i> Quartos: {{ listing.bedrooms }}</div>
                     <div class="col-6">
-                      <i class="fas fa-bath"></i> Banheiros: {{ listing.bathrooms }}</div>
+                      <i class="bi bi-badge-wc"></i> Banheiros: {{ listing.bathrooms }}</div>
                   </div>
                   <hr>
                   <div class="row py-2 text-secondary">
                     <div class="col-6">
-                      <i class="fas fa-user"></i> {{ listing.realtor }}</div>
+                      <i class="bi bi-person-circle"></i> {{ listing.realtor }}</div>
                   </div>
                   <div class="row text-secondary pb-2">
                     <div class="col-6">
-                      <i class="fas fa-clock"></i> {{ listing.list_date | timesince }}</div>
+                      <i class="bi bi-calendar3"></i> {{ listing.list_date | timesince }}</div>
                   </div>
                   <hr>
                   <a href="{% url 'listing' listing.id %}" class="btn btn-primary bg-azul-cj btn-block"> &gt; &gt; Mais detalhes &lt; &lt; </a>
@@ -136,25 +135,43 @@
     <div class="container">
       <div class="row text-center">
         <div class="col-md-4">
-          <i class="fas fa-comment fa-4x mr-4"></i>
+          <i class="bi bi-chat-left-heart mr-4" style="font-size: 4rem; color: #fff;"></i>
           <hr>
-          <h3>Consulting Services</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, debitis nam! Repudiandae, provident iste consequatur
-            hic dignissimos ratione ea quae.</p>
-        </div>
-        <div class="col-md-4">
-          <i class="fas fa-home fa-4x mr-4"></i>
+          <div class="card border-0" 
+            style="background-color: transparent !important; cursor: pointer !important;">
+            <a href="{% url 'about' %}" class="text-white">
+              <h3>Consultoras renomadas</h3>
+              <p>Equipe especializada na venda e aluguel de imóveis em Brasília e região, 
+                super qualificadas e com bastante atenção aos detalhes de cada imóvel visitado.
+                Com mais de 15 anos de trabalho e muitas realizações, conte com elas sempre!</p>
+              </a>  
+            </div>
+          </div>
+          <div class="col-md-4">
+          <i class="bi bi-house-check mr-4" style="font-size: 4rem; color: #fff;"></i>
           <hr>
-          <h3>Propery Management</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, debitis nam! Repudiandae, provident iste consequatur
-            hic dignissimos ratione ea quae.</p>
-        </div>
-        <div class="col-md-4">
-          <i class="fas fa-suitcase fa-4x mr-4"></i>
+          <div class="card border-0" 
+            style="background-color: transparent !important; cursor: pointer !important;">
+            <a href="{% url 'listings' %}" class="text-white">
+              <h3>Imóveis de alto padrão</h3>
+              <p>Propriedades para alugar e para vender, de todos os tamanhos, todos os tipos, 
+              locais e funções variadas; basta escolher seu próximo imóvel que a nossa equipe
+              de consultores vai entrar em contato para fazer acontecer!</p>
+              </a>
+            </div>
+          </div>
+          <div class="col-md-4">
+          <i class="bi bi-mailbox2-flag mr-4" style="font-size: 4rem; color: #fff;"></i>
           <hr>
-          <h3>Renting & Selling</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, debitis nam! Repudiandae, provident iste consequatur
-            hic dignissimos ratione ea quae.</p>
+          <div class="card border-0" 
+            style="background-color: transparent !important; cursor: pointer !important;">
+            <a href="{% url 'listings' %}" class="text-white">
+              <h3>Imóveis variados</h3>
+              <p>Casas para toda a família, em condomínios, apartamentos, flats, estudios, salas 
+              comerciais, escritórios, lotes, terrenos, galpão todos no DF e em outros estados do Brasil.
+              </p>
+            </a>
+          </div>
         </div>
       </div>
     </div>
