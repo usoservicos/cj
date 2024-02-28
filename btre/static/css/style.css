@@ -123,7 +123,7 @@ img {
 
 
 
- /********* ↓ cj imoveis ↓ *******************/
+ /********* cj imoveis *******************/
 
 a {
   text-decoration: none !important;
@@ -138,8 +138,15 @@ a {
 .vh-grande {
   height: 65vh !important; }
 
+.min-vh-media {
+  min-height: 35vh !important;
+  height: 100% !important;
+}
+
 .min-vh-grande {
-  min-height: 50vh !important; }
+  height: 100% !important;
+  min-height: 50vh !important; 
+}
 
 .min-vh-grande2 {
   min-height: 80vh !important; }
