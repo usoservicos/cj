@@ -1,9 +1,9 @@
 {% load static %}
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+<nav class="navbar navbar-expand-lg navbar-dark bg-azul-cj sticky-top">
     <div class="container">
       <a class="navbar-brand" href="{% url 'index' %}">
-        <img src="{% static 'img/logo.png' %}" class="logo" alt="">
+        <img src="{% static 'img/logo-light.png' %}" class="logo" alt="cj imoveis imobiliaria brasilia df">
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
         <span class="navbar-toggler-icon"></span>
@@ -26,7 +26,7 @@
               class="nav-item mr-3"
             {% endif %}
           >
-            <a class="nav-link" href="{% url 'about' %}">About</a>
+            <a class="nav-link" href="{% url 'about' %}">Sobre</a>
           </li>
           <li
             {% if 'listings' in request.path %}
@@ -35,7 +35,7 @@
               class="nav-item mr-3"
             {% endif %}
           >
-            <a class="nav-link" href="{% url 'listings' %}">Featured Listings</a>
+            <a class="nav-link" href="{% url 'listings' %}"> &lt;&lt; &nbsp; Imóveis &nbsp; &gt;&gt; </a>
           </li>
         </ul>
 
@@ -49,11 +49,11 @@
             {% endif %}
             >
               <a class="nav-link" href="{% url 'dashboard' %}">
-               Welcome {{ user.username }} (Dashboard)</a>
+                &qt; {{ user.username }} &lt; </a>
             </li>
             <li class="nav-item mr-3">
               <a href="javascript:{document.getElementById('logout').submit()}" class="nav-link">
-                <i class="fas fa-sign-out-alt"></i> Logout
+                <i class="fas fa-sign-out-alt"></i> Sair
               </a>
               <form action="{% url 'logout' %}" method="POST" id="logout">
                 {% csrf_token %}
@@ -69,7 +69,7 @@
             {% endif %}
             >
               <a class="nav-link" href="{% url 'register' %}">
-                <i class="fas fa-user-plus"></i> Register</a>
+                📋&nbsp; Registrar-se</a>
             </li>
             <li
             {% if 'login' in request.path %}
@@ -79,9 +79,7 @@
             {% endif %}
             >
               <a class="nav-link" href="{% url 'login' %}">
-                <i class="fas fa-sign-in-alt"></i>
-
-                Login</a>
+                ➜&nbsp; Entrar</a>
             </li>
           {% endif %}
         </ul>
