@@ -144,8 +144,8 @@ a {
 }
 
 .min-vh-grande {
-  height: 100% !important;
   min-height: 50vh !important; 
+  height: 100% !important;
 }
 
 .min-vh-grande2 {
