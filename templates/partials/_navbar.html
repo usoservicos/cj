@@ -3,7 +3,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-azul-cj sticky-top">
     <div class="container">
       <a class="navbar-brand" href="{% url 'index' %}">
-        <img src="{% static 'img/logo-light.png' %}" class="logo" alt="cj imoveis imobiliaria brasilia df">
+        &nbsp;<img src="{% static 'img/logo-light.png' %}" class="logo" alt="cj imoveis imobiliaria brasilia df">
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
         <span class="navbar-toggler-icon"></span>
@@ -17,7 +17,7 @@
               class="nav-item mr-3"
             {% endif %}
           >
-            <a class="nav-link" href="{% url 'index' %}">Home</a>
+            <a class="nav-link" href="{% url 'index' %}">&nbsp; Home</a>
           </li>
           <li
             {% if 'about' in request.path %}
@@ -26,7 +26,7 @@
               class="nav-item mr-3"
             {% endif %}
           >
-            <a class="nav-link" href="{% url 'about' %}">Sobre</a>
+            <a class="nav-link" href="{% url 'about' %}">&nbsp; Sobre</a>
           </li>
           <li
             {% if 'listings' in request.path %}
@@ -35,7 +35,7 @@
               class="nav-item mr-3"
             {% endif %}
           >
-            <a class="nav-link" href="{% url 'listings' %}"> &lt;&lt; &nbsp; Imóveis &nbsp; &gt;&gt; </a>
+            <a class="nav-link" href="{% url 'listings' %}">&nbsp; &lt;&lt; &nbsp; Imóveis &nbsp; &gt;&gt; </a>
           </li>
         </ul>
 
@@ -49,7 +49,7 @@
             {% endif %}
             >
               <a class="nav-link" href="{% url 'dashboard' %}">
-                &qt; {{ user.username }} &lt; </a>
+                 → {{ user.username }} </a>
             </li>
             <li class="nav-item mr-3">
               <a href="javascript:{document.getElementById('logout').submit()}" class="nav-link">
@@ -69,7 +69,7 @@
             {% endif %}
             >
               <a class="nav-link" href="{% url 'register' %}">
-                📋&nbsp; Registrar-se</a>
+                &nbsp;📋&nbsp; Registrar-se</a>
             </li>
             <li
             {% if 'login' in request.path %}
@@ -79,7 +79,7 @@
             {% endif %}
             >
               <a class="nav-link" href="{% url 'login' %}">
-                ➜&nbsp; Entrar</a>
+                &nbsp;➜&nbsp; Entrar</a>
             </li>
           {% endif %}
         </ul>
