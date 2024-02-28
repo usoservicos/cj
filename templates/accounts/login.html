@@ -1,16 +1,16 @@
 {% extends 'base.html' %}
 
-{% block title %} | Account Login {% endblock %}
+{% block title %} | Entrar {% endblock %}
 
 {% block content %}
 <section id="login" class="bg-light py-5">
     <div class="container">
-      <div class="row">
+      <div class="row min-vh-grande">
         <div class="col-md-6 mx-auto">
           <div class="card">
-            <div class="card-header bg-primary text-white">
-              <h4>
-                <i class="fas fa-sign-in-alt"></i> Login</h4>
+            <div class="card-header bg-azul-cj text-white">
+              <h4 class="mt-1">
+                &nbsp;➜ Entrar</h4>
             </div>
             <div class="card-body">
               <!-- Alerts -->
@@ -18,16 +18,16 @@
                 <form action="{% url 'login' %}" method="POST">
                   {% csrf_token %}
                 <div class="form-group">
-                  <label for="username">Username</label>
+                  <label for="username">Email ou Usuário</label>
                   <input type="text" name="username" class="form-control" required>
                 </div>
 
                 <div class="form-group">
-                  <label for="password2">Password</label>
+                  <label for="password2">Senha</label>
                   <input type="password" name="password" class="form-control" required>
                 </div>
 
-                <input type="submit" value="Login" class="btn btn-secondary btn-block">
+                <input type="submit" value="Entrar" class="btn btn-primary btn-block py-3">
               </form>
             </div>
           </div>
