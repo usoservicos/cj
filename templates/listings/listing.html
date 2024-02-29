@@ -95,19 +95,19 @@
             <div class="col-md-6">
               <ul class="list-group list-group-flush">
                 <li class="list-group-item text-secondary">
-                  <i class="fas fa-money-bill-alt"></i> Asking Price:
-                  <span class="float-right">${{ listing.price | intcomma }}</span>
+                  <i class="bi bi-cash-coin"></i> Preço:
+                  <span class="float-right"> R$ {{ listing.price | intcomma }}</span>
                 </li>
                 <li class="list-group-item text-secondary">
-                  <i class="fas fa-bed"></i> Bedrooms:
+                  <i class="bi bi-person-square"></i> Quartos:
                   <span class="float-right">{{ listing.bedrooms }}</span>
                 </li>
                 <li class="list-group-item text-secondary">
-                  <i class="fas fa-bath"></i> Bathrooms:
+                  <i class="bi bi-badge-wc"></i> Banheiros:
                   <span class="float-right">{{ listing.bathrooms }}</span>
                 </li>
                 <li class="list-group-item text-secondary">
-                  <i class="fas fa-car"></i> Garage:
+                  <i class="bi bi-car-front-fill"></i> Garagem:
                   <span class="float-right">{{ listing.garage }}
                   </span>
                 </li>
@@ -116,20 +116,20 @@
             <div class="col-md-6">
               <ul class="list-group list-group-flush">
                 <li class="list-group-item text-secondary">
-                  <i class="fas fa-th-large"></i> Square Feet:
-                  <span class="float-right">{{ listing.sqft }}</span>
+                  <i class="bi bi-arrows-fullscreen"></i> Metragem:
+                  <span class="float-right">{{ listing.sqft }}m²</span>
                 </li>
                 <li class="list-group-item text-secondary">
-                  <i class="fas fa-square"></i> Lot Size:
-                  <span class="float-right">{{ listing.lot_size }} Acres
+                  <i class="bi bi-aspect-ratio"></i> Área total:
+                  <span class="float-right">{{ listing.lot_size }}m²
                   </span>
                 </li>
                 <li class="list-group-item text-secondary">
-                  <i class="fas fa-calendar"></i> Listing Date:
+                  <i class="bi bi-clock-history"></i> Posto à venda:
                   <span class="float-right">{{ listing.list_date }}</span>
                 </li>
                 <li class="list-group-item text-secondary">
-                  <i class="fas fa-bed"></i> Realtor:
+                  <i class="bi bi-person-raised-hand"></i> Corretor(a):
                   <span class="float-right">{{ listing.realtor }}
                   </span>
                 </li>
@@ -150,11 +150,11 @@
           <div class="card mb-3">
             <img class="card-img-top" src="{{ listing.realtor.photo.url }}" alt="">
             <div class="card-body">
-              <h5 class="card-title">Property Realtor</h5>
+              <h5 class="card-title">Corretor(a) anunciante</h5>
               <h6 class="text-secondary">{{ listing.realtor }}</h6>
             </div>
           </div>
-          <button class="btn-primary btn-block btn-lg" data-toggle="modal" data-target="#inquiryModal">Make An Inquiry</button>
+          <button class="btn-primary btn-block btn-lg" data-toggle="modal" data-target="#inquiryModal"> Entre em contato </button>
         </div>
       </div>
     </div>
@@ -165,7 +165,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="inquiryModalLabel">Make An Inquiry</h5>
+          <h5 class="modal-title" id="inquiryModalLabel"> Entre em contato </h5>
           <button type="button" class="close" data-dismiss="modal">
             <span>&times;</span>
           </button>
@@ -181,11 +181,11 @@
             <input type="hidden" name="realtor_email" value="{{ listing.realtor.email }}">
             <input type="hidden" name="listing_id" value="{{ listing.id }}">
             <div class="form-group">
-              <label for="property_name" class="col-form-label">Property:</label>
+              <label for="property_name" class="col-form-label">Imóvel:</label>
               <input type="text" name="listing" class="form-control" value="{{ listing.title }}">
             </div>
             <div class="form-group">
-              <label for="name" class="col-form-label">Name:</label>
+              <label for="name" class="col-form-label">Nome:</label>
               <input type="text" name="name" class="form-control" {% if user.is_authenticated %} value="{{ user.first_name }} {{ user.last_name }}" {% endif %} required>
             </div>
             <div class="form-group">
@@ -193,15 +193,15 @@
               <input type="email" name="email" class="form-control" {% if user.is_authenticated %} value="{{ user.email }}" {% endif %} required>
             </div>
             <div class="form-group">
-              <label for="phone" class="col-form-label">Phone:</label>
+              <label for="phone" class="col-form-label">Contato:</label>
               <input type="text" name="phone" class="form-control">
             </div>
             <div class="form-group">
-              <label for="message" class="col-form-label">Message:</label>
+              <label for="message" class="col-form-label">Mensagem:</label>
               <textarea name="message" class="form-control"></textarea>
             </div>
             <hr>
-            <input type="submit" value="Send" class="btn btn-block btn-secondary">
+            <input type="submit" value="Enviar" class="btn btn-block btn-secondary">
           </form>
         </div>
       </div>
